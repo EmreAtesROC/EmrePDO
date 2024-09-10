@@ -1,16 +1,11 @@
 <?php
-
-include "index1.php";
+require "db.php";
+$db = new Database();
 
 if (isset($_POST["submit"])) {
-    $product_naam = $_POST["product_naam"];
-    $prijs_per_stuk = $_POST["prijs_per_stuk"];
-    $omschrijving = $_POST["omschrijving"];
-
-    $database = "INSERT INTO producten (product_naam, prijs_per_stuk, omschrijving) VALUES (?,?,?)";
-    $result = $pdo->prepare($database);
-    $placeholders = array($product_naam, $prijs_per_stuk, $omschrijving);
-    $result->execute($placeholders);
+    $productNaam = $_POST["productNaam"];
+    $prijs= $_POST["prijs"];
+    $db->insertProduct($productNaam, $prijs);
 }
 
 ?>
@@ -18,16 +13,13 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert opdracht</title>
+    <title>Insert formulier</title>
 </head>
 <body>
 
 <form method="POST">
-    <input type="text" name="product_naam" placeholder="Product naam">
-    <input type="number" name="prijs_per_stuk" placeholder="Prijs per stuk">
-    <input type="text" name="omschrijving" placeholder="Omschrijving">
+    <input type="text" name="productNaam" placeholder="Product naam">
+    <input type="number" step=".01" name="prijs" placeholder="Prijs">
     <input type="submit" name="submit" value="Toevoegen">
 </form>
     
