@@ -29,6 +29,16 @@ class Database {
             $result->execute($placeholders);
 
     }    
+
+    public function loginUser($email) {
+        
+        $sql = $this->pdo->prepare("SELECT * FROM gebruikers where email = ?");
+        $sql->execute([$email]);
+        $result = $sql->fetch();
+        return $result;
+
+}    
+
 }
 
 ?>

@@ -18,24 +18,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="register.css">
 </head>
-<style>
-    .formulier {
-        display: flex;
-        flex-direction: column;
-    max-width: 500px;
-    margin: 50px auto;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    }
-
-    img {
-        width: 25%;
-    }
-
-</style>
 <body>
 
 <div class="formulier">
