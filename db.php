@@ -14,7 +14,7 @@ class Database {
     
     public function insertProduct($productNaam, $prijs) {
     
-        $sql = "INSERT INTO product (ProductNaam, Prijs) VALUES (?,?)";
+        $sql = "INSERT INTO product (productNaam, prijs) VALUES (?,?)";
         $result = $this->pdo->prepare($sql);
         $placeholders = array($productNaam, $prijs);
         $result->execute($placeholders);
@@ -27,7 +27,6 @@ class Database {
             $result = $this->pdo->prepare($sql);
             $placeholders = array($email, $hashedPassword);
             $result->execute($placeholders);
-
     }    
 
     public function loginUser($email) {
@@ -36,8 +35,14 @@ class Database {
         $sql->execute([$email]);
         $result = $sql->fetch();
         return $result;
+    }    
 
-}    
+    public function selectProduct() {
+        
+        $sql = $this->pdo->query("SELECT * FROM product");
+        $result = $sql->fetchAll();
+        return $result;
+    }    
 
 }
 

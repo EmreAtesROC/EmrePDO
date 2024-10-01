@@ -8,6 +8,7 @@ if (isset($_POST["submit"])) {
     $db->insertProduct($productNaam, $prijs);
 }
 
+
 ?>
 
 <!DOCTYPE html>
