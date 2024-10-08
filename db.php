@@ -44,6 +44,17 @@ class Database {
         return $result;
     }    
 
+    public function updateProduct($productNaam, $prijs, $id) {
+        $sql = $this->pdo->prepare("UPDATE product SET productNaam = ?, prijs = ? WHERE id = ?");
+        $placeholders = array($productNaam, $prijs, $id);
+        $sql->execute($placeholders);
+    }
+    
+    public function deleteProduct($id) {
+        $sql = $this->pdo->prepare("DELETE from product where id = ?");
+        $placeholders = array($id);
+        $sql->execute($placeholders);
+    }
 }
 
 ?>

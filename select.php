@@ -20,6 +20,7 @@ $producten = $db->selectProduct();
                     <th>ID</th>
                     <th>Productnaam</th>
                     <th>Prijs</th>
+                    <th colspan="2">Acties</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,8 @@ $producten = $db->selectProduct();
                     echo "<td> " . $product['id'] . "</td>";
                     echo "<td> " . $product['productNaam'] . "</td>";
                     echo "<td> " . $product['prijs'] . "</td>";
+                    echo "<td> <a class='btn btn-primary' href='update.php?id=".$product['id']."&name=".$product['productNaam']."'>Edit</a></td>";
+                    echo "<td> <a class='btn btn-danger' href='delete.php?id=".$product['id']."'>Delete</a></td>";        
                     echo "</tr>";
                 }
                 ?>
